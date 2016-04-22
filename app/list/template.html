@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h1>Numbers</h1>
+    <p ng-if="!$ctrl.activated">Loading ...</p>
+    <ul ng-if="$ctrl.activated">
+      <li ng-repeat="number in $ctrl.numbers">
+        <a href ui-sref="numbers-list.details({numberId: number.id})">{{number.id}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-6">
+    <div ui-view=""></div>
+  </div>
+</div>

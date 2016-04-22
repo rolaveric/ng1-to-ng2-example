@@ -1,0 +1,72 @@
+{
+  "numbers": [
+    {
+      "id": 0,
+      "label": "zero",
+      "description": "Zero is before 1. If you try to divide by it, you may have a bad time.",
+      "comments": [
+        {"author": "Zero4Life", "timestamp": "2016-04-09T11:17:12.407Z", "content": "Zero is my hero!"}
+      ]
+    },
+    {
+      "id": 1,
+      "label": "one",
+      "description": "One is the first number. Being number one is good, when ordered by descending quality.",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "label": "two",
+      "description": "Two is the second number. Even numbers can be divided by two without a remainder - which includes two!.",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "label": "three",
+      "description": "Three is the third number.",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "label": "four",
+      "description": "Four is the fourth number.",
+      "comments": []
+    },
+    {
+      "id": 5,
+      "label": "five",
+      "description": "Five is the fifth number.",
+      "comments": []
+    },
+    {
+      "id": 6,
+      "label": "six",
+      "description": "Six is the sixth number.",
+      "comments": []
+    },
+    {
+      "id": 7,
+      "label": "seven",
+      "description": "Seven is the seventh number.",
+      "comments": []
+    },
+    {
+      "id": 8,
+      "label": "eight",
+      "description": "Eight is the eighth number.",
+      "comments": []
+    },
+    {
+      "id": 9,
+      "label": "nine",
+      "description": "Nine is the ninth number.",
+      "comments": []
+    },
+    {
+      "id": 10,
+      "label": "ten",
+      "description": "Ten is the tenth number.",
+      "comments": []
+    }
+  ]
+}

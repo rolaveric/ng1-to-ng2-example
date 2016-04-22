@@ -1,0 +1,23 @@
+<h2>{{$ctrl.number.label}}</h2>
+<a href ui-sref="numbers-list">Back to List</a>
+<dl>
+  <dt>ID</dt>
+  <dd>{{$ctrl.number.id}}</dd>
+  <dt>Label</dt>
+  <dd>{{$ctrl.number.label}}</dd>
+  <dt>Description</dt>
+  <dd>{{$ctrl.number.description}}</dd>
+</dl>
+
+<h3>Comments</h3>
+<form ng-if="$ctrl.isLoggedIn" ng-submit="$ctrl.newCommentFormSubmitted()">
+  <label>New Comment</label>
+  <textarea class="form-control" ng-model="$ctrl.newCommentContent"></textarea>
+  <button class="btn btn-default" type="submit" ng-disabled="!$ctrl.newCommentContent">Submit</button>
+</form>
+<p ng-if="!$ctrl.isLoggedIn">
+  <a ng-click="$ctrl.loginLinkClicked($event)">Login</a> to create a comment
+</p>
+<ul>
+  <li ng-repeat="comment in $ctrl.number.comments">{{comment.content}} ({{comment.author}} at {{comment.timestamp}})</li>
+</ul>
