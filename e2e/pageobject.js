@@ -1,3 +1,4 @@
+'use strict';
 // Page object for the application
 
 class NumbersPageObject {
@@ -17,3 +18,5 @@ class NumbersPageObject {
     return $('numbers-details');
   }
 }
+
+exports.NumbersPageObject = NumbersPageObject;

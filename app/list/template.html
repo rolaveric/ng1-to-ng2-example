@@ -1,14 +1,16 @@
 <div class="row">
-  <div class="col-xs-6">
-    <h1>Numbers</h1>
+  <ui-view name="header"></ui-view>
+</div>
+<div class="row">
+  <div class="col-xs-3">
     <p ng-if="!$ctrl.activated">Loading ...</p>
-    <ul ng-if="$ctrl.activated">
-      <li ng-repeat="number in $ctrl.numbers">
-        <a href ui-sref="numbers-list.details({numberId: number.id})">{{number.id}}</a>
+    <ul ng-if="$ctrl.activated" class="nav nav-pills nav-stacked">
+      <li ng-repeat="number in $ctrl.numbers" ui-sref-active="active">
+        <a href ui-sref="numbers-list.details({numberId: number.id})">{{number.label}} ({{number.id}})</a>
       </li>
     </ul>
   </div>
-  <div class="col-xs-6">
-    <div ui-view=""></div>
+  <div class="col-xs-9">
+    <ui-view name="content"></ui-view>
   </div>
 </div>

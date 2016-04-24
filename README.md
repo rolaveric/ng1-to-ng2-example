@@ -9,3 +9,13 @@ To try and give the best overview for this example, the application has the foll
 * Uses a Bootstrap modal from angular-ui-bootstrap
 * Has unit tests
 * Has E2E tests
+
+# Starting
+
+To get started, run `npm start` and open [http://localhost:3000/app/index.html](http://localhost:3000/app/index.html) in your browser.
+
+# Testing
+
+For unit tests: `npm test`
+
+For E2E tests: `npm run e2e`

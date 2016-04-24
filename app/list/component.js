@@ -5,3 +5,7 @@ export const numbersListComponent = {
   template: template,
   controller: 'NumbersListController'
 };
+
+export const numbersListHeaderComponent = {
+  template: `<h1>Numbers</h1>`
+};

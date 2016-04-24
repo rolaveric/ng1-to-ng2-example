@@ -41,8 +41,11 @@ export class NumbersModel {
         if (!n) {
           return this.$q.reject(404);
         }
-        n.comments.unshift({author: username, timestamp: new Date().toJSON(), content: content});
-        return this.$http.post('/api/v1/numbers', n.comments[0]);
+        n.comments = [
+          {author: username, timestamp: new Date().toJSON(), content: content},
+          ...n.comments
+        ];
+        return this.$http.post(`/api/v1/numbers/${numberId}/comments`, n.comments[0]);
       });
   }
 }

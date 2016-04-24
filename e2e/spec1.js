@@ -1,3 +1,5 @@
+'use strict';
+const NumbersPageObject = require('./pageobject.js').NumbersPageObject;
 
 describe('Numbers app', function() {
   
@@ -7,7 +9,7 @@ describe('Numbers app', function() {
       page = new NumbersPageObject();
       page.get();
 
-      expect(page.list().count()).toBe(1);
+      expect(page.list().isPresent()).toBe(true);
     });
   });
 });
