@@ -3,10 +3,10 @@
 </div>
 <div class="row">
   <div class="col-xs-3">
-    <p ng-if="!$ctrl.activated">Loading ...</p>
-    <ul ng-if="$ctrl.activated" class="nav nav-pills nav-stacked">
-      <li ng-repeat="number in $ctrl.numbers" ui-sref-active="active">
-        <a href ui-sref="numbers-list.details({numberId: number.id})">{{number.label}} ({{number.id}})</a>
+    <p *ngIf="!activated">Loading ...</p>
+    <ul *ngIf="activated" class="nav nav-pills nav-stacked">
+      <li *ngFor="#number of numbers" [class.active]="number === selectedNumber">
+        <a href uiSref="numbers-list.details" [uiParams]="{numberId: number.id}" (uiSrefStatus)="onStateStatus($event, number)">{{number.label}} ({{number.id}})</a>
       </li>
     </ul>
   </div>

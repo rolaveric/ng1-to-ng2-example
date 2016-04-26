@@ -1,12 +1,18 @@
+import {NumbersModel} from '../model/numbers.js';
 
 export class NumbersListController {
+  static get parameters() {
+    return [[NumbersModel]];
+  }
+
   constructor(numbersModel) {
     this.numbersModel = numbersModel;
     
     this.numbers = null;
     this.activated = false;
+    this.selectedNumber = null;
 
-    this.activate();
+      this.activate();
   }
 
   /**
@@ -14,10 +20,15 @@ export class NumbersListController {
    */
   activate() {
     this.numbersModel.getAll()
-      .then(numbers => {
+      .subscribe(numbers => {
         this.numbers = numbers;
         this.activated = true;
       })
   }
+
+  onStateStatus(stateEvent, number) {
+    if (stateEvent.active) {
+      this.selectedNumber = number;
+    }
+  }
 }
-NumbersListController.$inject = ['numbersModel'];

@@ -1,14 +1,18 @@
 // AngularJS component
 import template from './template.html!text';
+import {Component} from 'angular2/core';
+import {UIROUTER_DIRECTIVES} from 'ui-router-ng2';
+import {NumbersDetailsController} from './controller.js';
 
-export const numbersDetailsComponent = {
+export const NumbersDetailsComponent = Component({
+  selector: 'numbers-details',
   template: template,
-  controller: 'NumbersDetailsController',
-  bindings: {number: '<'}
-};
+  inputs: ['number'],
+  directives: [UIROUTER_DIRECTIVES]
+}).Class({constructor: NumbersDetailsController});
 
-export const numbersDetailsHeaderComponent = {
-  template: `<h1>Numbers - {{$ctrl.number.id}}</h1>`,
-  controller: function() {},
-  bindings: {number: '<'}
-};
+export const NumbersDetailsHeaderComponent = Component({
+  selector: 'numbers-details-header',
+  template: `<h1>Numbers - {{number.id}}</h1>`,
+  inputs: ['number']
+}).Class({constructor: function() {}});

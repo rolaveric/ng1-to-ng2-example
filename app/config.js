@@ -1,26 +1,25 @@
 System.config({
   baseURL: '/',
+  defaultJSExtensions: true,
+  packageConfigPaths: ['node_modules/*/package.json'],
   map: {
-    'systemjs': 'node_modules/systemjs/dist/system.js',
-    'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
-    'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
-    'angular': 'node_modules/angular',
-    'angular-ui-bootstrap': 'node_modules/angular-ui-bootstrap',
-    'angular-ui-router': 'node_modules/angular-ui-router/commonjs',
-    'text': 'node_modules/systemjs-plugin-text/text.js'
+    // SystemJS and plugins
+    'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
+    'systemjs-babel-build': 'systemjs-plugin-babel/systemjs-babel-browser.js',
+    'text': 'systemjs-plugin-text/text.js'
   },
+  paths: {
+    'app/*': 'app/*',
+    '*': 'node_modules/*',
+    'systemjs': 'node_modules/systemjs/dist/system.js'
+  },
+  transpiler: 'plugin-babel',
   packages: {
-    'angular': {
-      main: 'index.js',
-      defaultExtension: 'js'
+    'app': {
+      defaultExtension: false
     },
-    'angular-ui-router': {
-      defaultExtension: 'js'
-    },
-    'angular-ui-bootstrap': {
-      main: 'index.js',
-      defaultExtension: 'js'
+    'ui-router-ng2': {
+      main: 'ng2.js'
     }
-  },
-  transpiler: 'plugin-babel'
+  }
 });

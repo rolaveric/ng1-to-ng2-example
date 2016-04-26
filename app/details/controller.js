@@ -1,21 +1,31 @@
+import {LoginModel} from '../model/login.js';
+import {NumbersModel} from '../model/numbers.js';
 
 export class NumbersDetailsController {
-  constructor(loginModel, numbersModel, $location, numbersLoginModal) {
+  static get parameters() {
+    return [[LoginModel], [NumbersModel]];
+  }
+
+  /**
+   *
+   * @param loginModel {LoginModel}
+   * @param numbersModel {NumbersModel}
+   */
+  constructor(loginModel, numbersModel) {
     this.loginModel = loginModel;
     this.numbersModel = numbersModel;
-    this.numbersLoginModal = numbersLoginModal;
     
     this.isLoggedIn = !!this.loginModel.username;
-    this.newCommentContent = "";
-    this.currentUrl = $location.url();
+    this.newCommentContent = '';
   }
 
   /**
    * Handles 'submit' events for the new comment form.
    */
   newCommentFormSubmitted() {
-    this.numbersModel.addComment(this.number.id, this.loginModel.username, this.newCommentContent);
-    this.newCommentContent = "";
+    this.numbersModel.addComment(this.number, this.loginModel.username, this.newCommentContent)
+      .subscribe();
+    this.newCommentContent = '';
   }
 
   /**
@@ -25,7 +35,9 @@ export class NumbersDetailsController {
   loginLinkClicked($event) {
     $event.preventDefault();
 
-    this.numbersLoginModal.open().result.then(() => this.isLoggedIn = !!this.loginModel.username);
+    //this.numbersLoginModal.open().result.then(() => this.isLoggedIn = !!this.loginModel.username);
+    console.log('TODO: Create modal component');
+    this.isLoggedIn = true;
+    this.loginModel.username = 'Test User';
   }
 }
-NumbersDetailsController.$inject = ['loginModel', 'numbersModel', '$location', 'numbersLoginModal'];

@@ -1,52 +1,50 @@
+import {Class} from 'angular2/core';
+import {Http} from 'angular2/http';
+
 // Model object for accessing numbers data
 export class NumbersModel {
-  constructor($http, $q) {
-    this.$http = $http;
-    this.$q = $q;
-    this.data = null;
+  static get parameters() {
+    return [[Http]];
+  }
+
+  constructor(http) {
+    this.http = http;
+
+    this.getAllObservable = this.http.get('/api/v1/numbers')
+      .map(r => r.json())
   }
 
   /**
    * Returns a promise for all numbers data
-   * @returns {Promise.<object[]>}
+   * @returns {Observable.<object[]>}
    */
   getAll() {
-    if (this.data) {
-      return this.$q.resolve(this.data);
-    }
-    return this.$http.get('/api/v1/numbers')
-      .then(res => this.data = res.data);
+    return this.getAllObservable.share();
   }
 
   /**
    * Returns a promise for a particular number's data
    * @param id {number}
-   * @returns {Promise.<object>}
+   * @returns {Observable.<object>}
    */
   getNumber(id) {
     return this.getAll()
-      .then(all => all.find(n => n.id === id));
+      .map(all => all.find(n => n.id === id));
   }
 
   /**
    * Adds a comment to a number.
-   * @param numberId {number}
+   * @param number {object}
    * @param username {string}
    * @param content {string}
    * @returns {Promise}
    */
-  addComment(numberId, username, content) {
-    return this.getNumber(numberId)
-      .then(n => {
-        if (!n) {
-          return this.$q.reject(404);
-        }
-        n.comments = [
-          {author: username, timestamp: new Date().toJSON(), content: content},
-          ...n.comments
-        ];
-        return this.$http.post(`/api/v1/numbers/${numberId}/comments`, n.comments[0]);
-      });
+  addComment(number, username, content) {
+    number.comments = [
+      {author: username, timestamp: new Date().toJSON(), content: content},
+      ...number.comments
+    ];
+    return this.http.post(`/api/v1/numbers/${number.id}/comments`, number.comments[0]);
   }
 }
-NumbersModel.$inject = ['$http', '$q'];
+Class({constructor: NumbersModel});

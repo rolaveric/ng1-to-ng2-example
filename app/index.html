@@ -4,19 +4,24 @@
   <meta charset="utf-8">
   <title>Numbers</title>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
 </head>
 <body>
 <div class="container">
   <ui-view></ui-view>
 </div>
 
-<script src="../node_modules/systemjs/dist/system.js"></script>
+<script src="../node_modules/es6-shim/es6-shim.min.js"></script>
+<script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+<script src="../node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+<script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<script src="../node_modules/systemjs/dist/system.src.js"></script>
+<script src="../node_modules/rxjs/bundles/Rx.js"></script>
+<script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
 <script src="config.js"></script>
 <script>
   System.import('app/index.js')
       .then(function(m) {
-        m.bootstrap();
+        m.bootstrapApp();
       });
 </script>
 </body>

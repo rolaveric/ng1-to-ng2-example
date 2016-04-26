@@ -1,8 +1,7 @@
 
 export class NumbersLoginController {
-  constructor(loginModel, $location, $uibModalInstance) {
+  constructor(loginModel, $uibModalInstance) {
     this.loginModel = loginModel;
-    this.$location = $location;
     this.$uibModalInstance = $uibModalInstance;
     
     this.username = "";
@@ -24,4 +23,4 @@ export class NumbersLoginController {
     this.$uibModalInstance.close();
   }
 }
-NumbersLoginController.$inject = ['loginModel', '$location', '$uibModalInstance'];
+NumbersLoginController.$inject = ['loginModel', '$uibModalInstance'];
