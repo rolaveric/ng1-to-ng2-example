@@ -39,5 +39,8 @@
     "systemjs-builder": "github:systemjs/builder#master",
     "ui-router-ng2": "^1.0.0-alpha.4",
     "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "karma-coverage": "^0.5.5"
   }
 }

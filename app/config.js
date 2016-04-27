@@ -4,9 +4,9 @@ System.config({
   packageConfigPaths: ['node_modules/*/package.json'],
   map: {
     // SystemJS and plugins
-    'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
-    'systemjs-babel-build': 'systemjs-plugin-babel/systemjs-babel-browser.js',
-    'text': 'systemjs-plugin-text/text.js'
+    'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
+    'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+    'text': 'node_modules/systemjs-plugin-text/text.js'
   },
   paths: {
     'app/*': 'app/*',
