@@ -36,6 +36,7 @@
     "systemjs": "^0.19.26",
     "systemjs-plugin-babel": "0.0.9",
     "systemjs-plugin-text": "github:systemjs/plugin-text#0.0.7",
+    "systemjs-builder": "github:systemjs/builder#master",
     "ui-router-ng2": "^1.0.0-alpha.4",
     "zone.js": "^0.6.12"
   }

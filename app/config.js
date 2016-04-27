@@ -10,8 +10,8 @@ System.config({
   },
   paths: {
     'app/*': 'app/*',
-    '*': 'node_modules/*',
-    'systemjs': 'node_modules/systemjs/dist/system.js'
+    'angular2/*': 'node_modules/angular2/*',
+    'rxjs/*': 'node_modules/rxjs/*'
   },
   transpiler: 'plugin-babel',
   packages: {
