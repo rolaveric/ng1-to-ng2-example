@@ -1,26 +1,24 @@
-import angular from 'angular';
-import 'angular-mocks';
-import {numbersAppModule} from '../index.js';
+import {LoginModel} from './login.js';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
-describe('loginModel', function() {
-  beforeEach(angular.mock.module(numbersAppModule.name));
+describe('LoginModel', function() {
 
   describe('login()', function() {
-    var loginModel, $httpBackend;
-    beforeEach(inject(function(_loginModel_, _$httpBackend_) {
-      loginModel = _loginModel_;
-      $httpBackend = _$httpBackend_;
-    }));
+    var loginModel, http;
+    beforeEach(function() {
+      http = jasmine.createSpyObj('http', ['post']);
+      http.post.and.returnValue(Observable.of(1));
+      loginModel = new LoginModel(http);
+    });
 
     it('POSTs login request to server', function() {
-      $httpBackend.expectPOST('/api/v1/login').respond(200, {username: 'meep'});
       loginModel.login('meep', 'nereek');
+      expect(http.post).toHaveBeenCalledWith('/api/v1/login', {username: 'meep', password: 'nereek'});
     });
 
     it('Then attaches username to model', function() {
-      $httpBackend.expectPOST('/api/v1/login').respond(200, {username: 'meep'});
       loginModel.login('meep', 'nereek');
-      $httpBackend.flush();
       expect(loginModel.username).toBe('meep');
     });
   });
