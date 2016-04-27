@@ -4,14 +4,15 @@ module.exports = function(config) {
     frameworks: ['systemjs', 'jasmine'],
 
     systemjs: {
-      systemPath: 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+      baseURL: '.',
+      systemPath: 'node_modules/systemjs/dist/system.src.js',
       configFiles: ['app/config.js'],
-      imports: ['app/**/*.spec.js'],
+      imports: ['app/model/login.spec.js'],
       config: {}
     },
 
     preprocessors: {
-      'app/model/login.js': ['systemjs']
+      'app/model/login.js': ['systemjs', 'coverage']
     },
 
     // list of files / patterns to load in the browser
@@ -23,6 +24,7 @@ module.exports = function(config) {
       { pattern: 'app/**/*.js', included: false },
       { pattern: 'app/*.html', included: false },
       { pattern: 'app/**/*.html', included: false },
+      { pattern: 'node_modules/*/*.json', included: false },
       { pattern: 'node_modules/systemjs-plugin-babel/*.js', included: false },
       { pattern: 'node_modules/systemjs-plugin-babel/**/*.js', included: false },
       { pattern: 'node_modules/systemjs-plugin-text/text.js', included: false },
@@ -34,6 +36,13 @@ module.exports = function(config) {
       { pattern: 'node_modules/ui-router-ng2/**/*.js', included: false }
     ],
 
-    browsers: ['Chrome']
+    browsers: ['Chrome'],
+
+    reporters: ['progress', 'systemjs-remap-coverage', 'coverage'],
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    }
   });
 };
