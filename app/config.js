@@ -6,7 +6,9 @@ System.config({
     // SystemJS and plugins
     'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
     'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
-    'text': 'node_modules/systemjs-plugin-text/text.js'
+    'text': 'node_modules/systemjs-plugin-text/text.js',
+    
+    'ui-router-ng2': 'node_modules/ui-router-ng2'
   },
   paths: {
     'app/*': 'app/*',
