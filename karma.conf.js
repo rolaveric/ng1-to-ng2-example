@@ -12,7 +12,9 @@ module.exports = function(config) {
     },
 
     preprocessors: {
-      //'app/model/login.js': ['systemjs', 'coverage']
+      'app/index.js': ['systemjs', 'coverage'],
+      'app/states.js': ['systemjs', 'coverage'],
+      'app/*/!(*spec).js': ['systemjs', 'coverage']
     },
 
     // list of files / patterns to load in the browser
@@ -38,11 +40,14 @@ module.exports = function(config) {
 
     browsers: ['Chrome'],
 
-    reporters: ['progress', /*'systemjs-remap-coverage', */'coverage'],
+    reporters: ['progress', 'systemjs-remap-coverage', 'coverage'],
 
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      dir : 'coverage/',
+      reporters: [
+        {type: 'html'},
+        {type: 'json'}
+      ]
     }
   });
 };

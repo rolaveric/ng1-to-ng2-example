@@ -22,6 +22,13 @@ export class LoginModel {
     return this.http.post('/api/v1/login', {username: username, password: password})
       .subscribe(() => this.username = username);
   }
+
+  /**
+   * Deliberately unused for testing code coverage.
+   */
+  unusedMethod() {
+    console.log('meep');
+  }
 }
 
 export const LoginModelProvider = Class({constructor: LoginModel});
