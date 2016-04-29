@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/rolaveric/ng1-to-ng2-example.png?branch=karma-systemjs-experiment)](https://travis-ci.org/rolaveric/ng1-to-ng2-example)
 # ng1-to-ng2-example - Phase 2a
 This phase shows the app after going through a "big bang" migration approach
 where there's no transition period inbetween Angular1 and Angular2.
