@@ -5,35 +5,35 @@ var karmaConfig = {
     // Path to your SystemJS configuration file
     configFile: 'app/config.js',
 
-    // Patterns for files that you want Karma to make available, but not loaded until a module requests them. eg. Third-party libraries.
-    serveFiles: [
-      'app/!(*spec).js',
-      'app/**/!(*spec).js',
-      'app/*.html',
-      'app/**/*.html',
-      'node_modules/systemjs-plugin-babel/*.js',
-      'node_modules/systemjs-plugin-babel/**/*.js',
-      'node_modules/systemjs-plugin-text/text.js',
-      'node_modules/angular/*.js',
-      'node_modules/angular-mocks/*.js',
-      'node_modules/angular-ui-bootstrap/index.js',
-      'node_modules/angular-ui-bootstrap/dist/*.js',
-      'node_modules/angular-ui-router/commonjs/*.js',
-      'node_modules/angular-ui-router/commonjs/**/*.js'
-    ],
-
     // SystemJS configuration specifically for tests, added after your config file.
     // Good for adding test libraries and mock modules
     config: {
       paths: {
         'angular-mocks': 'node_modules/angular-mocks/angular-mocks.js'
+      },
+      map: {
+        'app': 'base/app'
       }
     }
   },
   // Test files
   files: [
     'app/*.spec.js',
-    'app/**/*.spec.js'
+    'app/**/*.spec.js',
+    { pattern: 'app/!(*spec).js', included: false },
+    { pattern: 'app/**/!(*spec).js', included: false },
+    { pattern: 'app/*.html', included: false },
+    { pattern: 'app/**/*.html', included: false },
+    { pattern: 'node_modules/systemjs-plugin-babel/*.js', included: false, watched: false },
+    { pattern: 'node_modules/systemjs-plugin-babel/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false },
+    { pattern: 'node_modules/angular/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular-mocks/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular-ui-bootstrap/index.js', included: false, watched: false },
+    { pattern: 'node_modules/angular-ui-bootstrap/dist/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular-ui-router/commonjs/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular-ui-router/commonjs/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/*/package.json', included: false, watched: false }
   ],
 
   browsers: ['Chrome'],
@@ -48,6 +48,7 @@ var karmaConfig = {
 
 if (process.env.TRAVIS) {
   karmaConfig.browsers = ['Chrome_travis_ci'];
+  karmaConfig.singleRun = true;
 }
 
 module.exports = function(config) {
