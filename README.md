@@ -47,3 +47,4 @@ Take note to wrap classes in `angular2/core.Class` and use `parameters` instead 
     * Replace `component` property values with classes instead of strings
     * Keep using `$inject` for DI into ui-router functions.
     * Inject `$transition$` into `resolve` functions to access state params with `$transition$.params()`
+* Add `useAllAngular2AppRoots: true` to protractor config.
