@@ -4,14 +4,14 @@ System.config({
   packageConfigPaths: ['node_modules/*/package.json'],
   map: {
     // SystemJS and plugins
-    'plugin-babel': 'systemjs-plugin-babel/plugin-babel.js',
-    'systemjs-babel-build': 'systemjs-plugin-babel/systemjs-babel-browser.js',
-    'text': 'systemjs-plugin-text/text.js'
-  },
-  paths: {
-    'app/*': 'app/*',
-    '*': 'node_modules/*',
-    'systemjs': 'node_modules/systemjs/dist/system.js'
+    'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
+    'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+    'text': 'node_modules/systemjs-plugin-text/text.js',
+
+    // App libraries
+    'ui-router-ng2': 'node_modules/ui-router-ng2',
+    'angular2': 'node_modules/angular2',
+    'rxjs': 'node_modules/rxjs'
   },
   transpiler: 'plugin-babel',
   packages: {
@@ -20,6 +20,8 @@ System.config({
     },
     'ui-router-ng2': {
       main: 'ng2.js'
-    }
+    },
+    'angular2': {},
+    'rxjs': {}
   }
 });
