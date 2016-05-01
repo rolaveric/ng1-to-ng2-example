@@ -59,6 +59,7 @@ var karmaConfig = {
 
 if (process.env.TRAVIS) {
   karmaConfig.browsers = ['Chrome_travis_ci'];
+  karmaConfig.singleRun = true;
 }
 
 module.exports = function(config) {
