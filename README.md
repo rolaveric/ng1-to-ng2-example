@@ -22,8 +22,8 @@ without using [ngUpgrade](https://angular.io/docs/ts/latest/guide/upgrade.html#!
 to transition between them.
 So here's the steps I went through to migrate the application:
 
-* Install new dependencies: `npm install --save angular2 rxjs@5.0.0-beta.2 ui-router-ng2 es6-shim reflect-metadata@0.1.2 zone.js babel-plugin-transform-decorators-legacy`
-Note that Angular2 currently (beta.15) requires specific versions of rxjs and reflect-metadata
+* Install new dependencies: `npm install --save angular2@2.0.0-beta.15 rxjs@5.0.0-beta.2 ui-router-ng2 es6-shim reflect-metadata@0.1.2 zone.js babel-plugin-transform-decorators-legacy`
+Note that Angular2 beta.15 requires specific versions of rxjs and reflect-metadata
 * Remove old Angular1 libraries: `npm uninstall --save angular angular-mocks angular-ui-router angular-ui-bootstrap`
 * Add libraries to `app/index.html` and update SystemJS config: [ui-router/quickstart-ng2](https://github.com/ui-router/quickstart-ng2/blob/c3504223be7c054b0837cca59116d960ba5404cd/index.html)
 * Change `app/index.js` to use the new Angular2 bootstrap process: [ui-router/quickstart-ng2](https://github.com/ui-router/quickstart-ng2/blob/c3504223be7c054b0837cca59116d960ba5404cd/app/_bootstrap/bootstrap.ts)
