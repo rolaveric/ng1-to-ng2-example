@@ -12,27 +12,30 @@ var karmaConfig = {
       'node_modules/angular2/bundles/angular2-polyfills.js'
     ],
 
-    // Patterns for files that you want Karma to make available, but not loaded until a module requests them. eg. Third-party libraries.
-    serveFiles: [
-      'app/!(*spec).js',
-      'app/**/!(*spec).js',
-      'app/*.html',
-      'app/**/*.html',
-      'node_modules/systemjs-plugin-babel/*.js',
-      'node_modules/systemjs-plugin-babel/**/*.js',
-      'node_modules/systemjs-plugin-text/text.js',
-      'node_modules/angular2/*.js',
-      'node_modules/angular2/**/*.js',
-      'node_modules/rxjs/*.js',
-      'node_modules/rxjs/**/*.js',
-      'node_modules/ui-router-ng2/*.js',
-      'node_modules/ui-router-ng2/**/*.js'
-    ]
+    config: {
+      map: {
+        'app': 'base/app'
+      }
+    }
   },
   // Test files
   files: [
     'app/*.spec.js',
-    'app/**/*.spec.js'
+    'app/**/*.spec.js',
+    { pattern: 'app/!(*spec).js', included: false },
+    { pattern: 'app/**/!(*spec).js', included: false },
+    { pattern: 'app/*.html', included: false },
+    { pattern: 'app/**/*.html', included: false },
+    { pattern: 'node_modules/systemjs-plugin-babel/*.js', included: false, watched: false },
+    { pattern: 'node_modules/systemjs-plugin-babel/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false },
+    { pattern: 'node_modules/angular2/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/rxjs/*.js', included: false, watched: false },
+    { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/ui-router-ng2/*.js', included: false, watched: false },
+    { pattern: 'node_modules/ui-router-ng2/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/*/*.json', included: false, watched: false }
   ],
 
   browsers: ['Chrome'],
@@ -47,6 +50,7 @@ var karmaConfig = {
 
 if (process.env.TRAVIS) {
   karmaConfig.browsers = ['Chrome_travis_ci'];
+  karmaConfig.singleRun = true;
 }
 
 module.exports = function(config) {

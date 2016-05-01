@@ -4,6 +4,7 @@ System.config({
   packageConfigPaths: ['node_modules/*/package.json'],
   map: {
     // SystemJS and plugins
+    'systemjs': 'node_modules/systemjs/dist/system.js',
     'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
     'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
     'text': 'node_modules/systemjs-plugin-text/text.js',
