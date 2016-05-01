@@ -1,7 +1,7 @@
 import {trace, UIROUTER_PROVIDERS, UiView, UIRouterConfig, Category} from 'ui-router-ng2';
 import {UIRouter} from 'ui-router-ng2/router';
 import {Http, HTTP_PROVIDERS} from 'angular2/http';
-import {provide, Class, Injector} from 'angular2/core';
+import {provide, Class, Injector, enableProdMode} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -45,7 +45,7 @@ Class({constructor: MyUIRouterConfig});
  */
 export function bootstrapApp(prod=false) {
   if (prod) {
-
+    enableProdMode();
   } else {
     trace.enable(Category.TRANSITION, Category.VIEWCONFIG);
   }
