@@ -1,0 +1,42 @@
+{
+  "name": "ng1-to-ng2-example",
+  "version": "1.0.0",
+  "description": "An example of converting an Angular 1 app to Angular 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node node_modules/karma/bin/karma start karma.conf.js",
+    "pree2e": "node node_modules/protractor/bin/webdriver-manager update",
+    "e2e": "node node_modules/protractor/bin/protractor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolaveric/ng1-to-ng2-example.git"
+  },
+  "author": "Jason Stone <rolaveric@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rolaveric/ng1-to-ng2-example/issues"
+  },
+  "homepage": "https://github.com/rolaveric/ng1-to-ng2-example#readme",
+  "dependencies": {
+    "angular2": "2.0.0-beta.15",
+    "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-systemjs": "^0.13.0",
+    "protractor": "^3.3.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "^0.19.27",
+    "systemjs-plugin-babel": "0.0.10",
+    "systemjs-plugin-text": "github:systemjs/plugin-text#0.0.7",
+    "ui-router-ng2": "^1.0.0-alpha.4",
+    "zone.js": "^0.6.12"
+  }
+}

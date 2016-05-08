@@ -5,12 +5,14 @@ var karmaConfig = {
     // Path to your SystemJS configuration file
     configFile: 'app/config.js',
 
-    // SystemJS configuration specifically for tests, added after your config file.
-    // Good for adding test libraries and mock modules
+    // Files to be included before all others
+    includeFiles: [
+      'node_modules/es6-shim/es6-shim.min.js',
+      'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
+      'node_modules/angular2/bundles/angular2-polyfills.js'
+    ],
+
     config: {
-      paths: {
-        'angular-mocks': 'node_modules/angular-mocks/angular-mocks.js'
-      },
       map: {
         'app': 'base/app'
       }
@@ -27,13 +29,13 @@ var karmaConfig = {
     { pattern: 'node_modules/systemjs-plugin-babel/*.js', included: false, watched: false },
     { pattern: 'node_modules/systemjs-plugin-babel/**/*.js', included: false, watched: false },
     { pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false },
-    { pattern: 'node_modules/angular/*.js', included: false, watched: false },
-    { pattern: 'node_modules/angular-mocks/*.js', included: false, watched: false },
-    { pattern: 'node_modules/angular-ui-bootstrap/index.js', included: false, watched: false },
-    { pattern: 'node_modules/angular-ui-bootstrap/dist/*.js', included: false, watched: false },
-    { pattern: 'node_modules/angular-ui-router/commonjs/*.js', included: false, watched: false },
-    { pattern: 'node_modules/angular-ui-router/commonjs/**/*.js', included: false, watched: false },
-    { pattern: 'node_modules/*/package.json', included: false, watched: false }
+    { pattern: 'node_modules/angular2/*.js', included: false, watched: false },
+    { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/rxjs/*.js', included: false, watched: false },
+    { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/ui-router-ng2/*.js', included: false, watched: false },
+    { pattern: 'node_modules/ui-router-ng2/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/*/*.json', included: false, watched: false }
   ],
 
   browsers: ['Chrome'],
