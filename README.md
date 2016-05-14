@@ -22,16 +22,19 @@ without using [ngUpgrade](https://angular.io/docs/ts/latest/guide/upgrade.html#!
 to transition between them.
 So here's the steps I went through to migrate the application:
 
-* Install new dependencies: `npm install --save angular2@2.0.0-beta.15 rxjs@5.0.0-beta.2 ui-router-ng2 es6-shim reflect-metadata@0.1.2 zone.js babel-plugin-transform-decorators-legacy`
+* Install new dependencies:
+```bash
+npm install --save @angular/common@2.0.0-rc.1 @angular/compiler@2.0.0-rc.1 @angular/core@2.0.0-rc.1 @angular/http@2.0.0-rc.1 @angular/platform-browser@2.0.0-rc.1 @angular/platform-browser-dynamic@2.0.0-rc.1 rxjs@5.0.0-beta.6 ui-router-ng2@1.0.0-alpha.5 es6-shim reflect-metadata@0.1.3 zone.js@0.6.12
+```
 Note that Angular2 beta.15 requires specific versions of rxjs and reflect-metadata
 * Remove old Angular1 libraries: `npm uninstall --save angular angular-mocks angular-ui-router angular-ui-bootstrap`
 * Add libraries to `app/index.html` and update SystemJS config: [ui-router/quickstart-ng2](https://github.com/ui-router/quickstart-ng2/blob/c3504223be7c054b0837cca59116d960ba5404cd/index.html)
 * Change `app/index.js` to use the new Angular2 bootstrap process: [ui-router/quickstart-ng2](https://github.com/ui-router/quickstart-ng2/blob/c3504223be7c054b0837cca59116d960ba5404cd/app/_bootstrap/bootstrap.ts)
 * Add ui-router config to `app/index.js`: [ui-router/quickstart-ng2](https://github.com/ui-router/quickstart-ng2/blob/c3504223be7c054b0837cca59116d960ba5404cd/app/_bootstrap/router.config.ts)
-Take note to wrap classes in `angular2/core.Class` and use `parameters` instead of `$inject` for DI.
+Take note to wrap classes in `@angular/core.Class` and use `parameters` instead of `$inject` for DI.
 * Update all the components and services to Angular2:
-    * Wrap components in `angular2/core.Component({}).Class({})`
-    * Wrap services in `angular2/core.Class({})`
+    * Wrap components in `@angular/core.Component({}).Class({})`
+    * Wrap services in `@angular/core.Class({})`
     * Replace `$inject` properties with `parameters`
     * Remove `$ctrl` from templates.
     * Replace `bindings` with `inputs` and `outputs`
