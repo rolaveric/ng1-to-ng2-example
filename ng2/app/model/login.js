@@ -1,5 +1,5 @@
-import {Class} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Class} from '@angular/core';
+import {Http} from '@angular/http';
 
 // Model for handling login
 export class LoginModel {

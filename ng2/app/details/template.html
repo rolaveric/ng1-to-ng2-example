@@ -19,5 +19,5 @@
   <a (click)="loginLinkClicked($event)">Login</a> to create a comment
 </p>
 <ul>
-  <li *ngFor="#comment of number.comments">{{comment.content}} ({{comment.author}} at {{comment.timestamp}})</li>
+  <li *ngFor="let comment of number.comments">{{comment.content}} ({{comment.author}} at {{comment.timestamp}})</li>
 </ul>
