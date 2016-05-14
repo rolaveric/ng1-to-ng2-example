@@ -1,7 +1,9 @@
 import {trace, UIROUTER_PROVIDERS, UiView, UIRouterConfig, Category} from 'ui-router-ng2';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {provide, Class, Injector, enableProdMode} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import {HTTP_PROVIDERS} from '@angular/http';
+import {provide, Class, Injector, enableProdMode} from '@angular/core';
+import {LocationStrategy, HashLocationStrategy, PlatformLocation} from '@angular/common';
+import {BrowserPlatformLocation} from '@angular/platform-browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
@@ -50,10 +52,15 @@ export function bootstrapApp(prod=false) {
   }
 
   bootstrap(UiView, [
+    // Need to specify what the LocationStrategy and PlatformLocation providers are for ui-router to work with
+    provide(LocationStrategy, { useClass: HashLocationStrategy  }), // Use PathLocationStrategy if using HTML5 compatible paths
+    provide(PlatformLocation, { useClass: BrowserPlatformLocation }),
+
     ...UIROUTER_PROVIDERS,
     ...HTTP_PROVIDERS,
     NumbersModel,
     LoginModel,
+
     provide(UIRouterConfig, { useClass: MyUIRouterConfig })
   ]);
 }

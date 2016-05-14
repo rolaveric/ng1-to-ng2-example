@@ -1,6 +1,6 @@
 // AngularJS component
 import template from './template.html!text';
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {UIROUTER_DIRECTIVES} from 'ui-router-ng2';
 import {NumbersListController} from './controller.js';
 

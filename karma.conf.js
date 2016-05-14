@@ -8,8 +8,9 @@ var karmaConfig = {
     // Files to be included before all others
     includeFiles: [
       'node_modules/es6-shim/es6-shim.min.js',
-      'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
-      'node_modules/angular2/bundles/angular2-polyfills.js'
+      'node_modules/systemjs/dist/system-polyfills.js',
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/reflect-metadata/Reflect.js'
     ],
 
     config: {
@@ -29,13 +30,13 @@ var karmaConfig = {
     { pattern: 'node_modules/systemjs-plugin-babel/*.js', included: false, watched: false },
     { pattern: 'node_modules/systemjs-plugin-babel/**/*.js', included: false, watched: false },
     { pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false },
-    { pattern: 'node_modules/angular2/*.js', included: false, watched: false },
-    { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
+    { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
     { pattern: 'node_modules/rxjs/*.js', included: false, watched: false },
     { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
     { pattern: 'node_modules/ui-router-ng2/*.js', included: false, watched: false },
     { pattern: 'node_modules/ui-router-ng2/**/*.js', included: false, watched: false },
-    { pattern: 'node_modules/*/*.json', included: false, watched: false }
+    { pattern: 'node_modules/*/*.json', included: false, watched: false },
+    { pattern: 'node_modules/@*/*/*.json', included: false, watched: false }
   ],
 
   browsers: ['Chrome'],
